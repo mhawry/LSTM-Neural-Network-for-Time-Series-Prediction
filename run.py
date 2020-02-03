@@ -5,7 +5,6 @@ __license__ = "MIT"
 
 import os
 import json
-import time
 import math
 import matplotlib.pyplot as plt
 from core.data_processor import DataLoader

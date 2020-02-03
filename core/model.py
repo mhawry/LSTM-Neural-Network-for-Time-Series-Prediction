@@ -1,10 +1,9 @@
 import os
-import math
 import numpy as np
 import datetime as dt
 from numpy import newaxis
 from core.utils import Timer
-from keras.layers import Dense, Activation, Dropout, LSTM
+from keras.layers import Dense, Dropout, LSTM
 from keras.models import Sequential, load_model
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 
