@@ -25,7 +25,7 @@ def plot_results_multiple(predicted_data, true_data, prediction_len):
     fig = plt.figure(facecolor='white')
     ax = fig.add_subplot(111)
     ax.plot(true_data, label='True Data')
-	# Pad the list of predictions to shift it in the graph to it's correct start
+    # Pad the list of predictions to shift it in the graph to its correct start
     for i, data in enumerate(predicted_data):
         padding = [None for p in range(i * prediction_len)]
         plt.plot(padding + data, label='Prediction')
@@ -35,7 +35,8 @@ def plot_results_multiple(predicted_data, true_data, prediction_len):
 
 def main():
     configs = json.load(open('config.json', 'r'))
-    if not os.path.exists(configs['model']['save_dir']): os.makedirs(configs['model']['save_dir'])
+    if not os.path.exists(configs['model']['save_dir']):
+        os.makedirs(configs['model']['save_dir'])
 
     data = DataLoader(
         os.path.join('data', configs['data']['filename']),
@@ -50,16 +51,17 @@ def main():
         normalise=configs['data']['normalise']
     )
 
-    '''
-	# in-memory training
-	model.train(
-		x,
-		y,
-		epochs = configs['training']['epochs'],
-		batch_size = configs['training']['batch_size'],
-		save_dir = configs['model']['save_dir']
-	)
-	'''
+    """
+    # in-memory training
+    model.train(
+        x,
+        y,
+        epochs = configs['training']['epochs'],
+        batch_size = configs['training']['batch_size'],
+        save_dir = configs['model']['save_dir']
+    )
+    """
+
     # out-of memory generative training
     steps_per_epoch = math.ceil((data.len_train - configs['data']['sequence_length']) / configs['training']['batch_size'])
     model.train_generator(
