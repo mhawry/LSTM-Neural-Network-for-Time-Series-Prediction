@@ -1,8 +1,8 @@
 {
     "data": {
-        "filename": "sp500.csv",
+        "filename": "CHRIS-CME_QM1.csv",
         "columns": [
-            "Close",
+            "Last",
             "Volume"
         ],
         "sequence_length": 50,
